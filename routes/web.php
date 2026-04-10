@@ -6,6 +6,7 @@ use App\Http\Controllers\CVController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\AusbildungController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,8 @@ Route::middleware('auth')->group(function () {
 */
 Route::get('/advices',   [AdviceController::class,   'index'])->name('advices.index');
 Route::get('/ausbildung',[AusbildungController::class,'index'])->name('ausbildung.index');
+
+
+// Kontakt
+Route::get('/kontakt',  [ContactController::class, 'index'])->name('contact');
+Route::post('/kontakt', [ContactController::class, 'send'])->name('contact.send');
