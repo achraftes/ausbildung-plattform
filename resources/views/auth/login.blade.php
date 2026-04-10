@@ -93,7 +93,7 @@
     <div class="auth-card">
 
         <div class="auth-brand">
-            <div class="auth-logo">Career<span>Hub</span></div>
+            <div class="auth-logo">Karriere<span>Nabe</span></div>
             <p>Willkommen zurück! 👋</p>
         </div>
 
