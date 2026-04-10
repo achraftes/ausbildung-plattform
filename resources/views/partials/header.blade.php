@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a href="{{ url('/') }}" class="nav-brand">
-        <div class="brand-dot"></div>Career<span>Hub</span>
+        <div class="brand-dot"></div>Karriere<span>Nabe</span>
     </a>
 
     <div class="nav-links">

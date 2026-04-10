@@ -2,7 +2,7 @@
     <div class="footer-grid">
 
         <div class="footer-about">
-            <div class="footer-brand">Career<span>Hub</span></div>
+            <div class="footer-brand">Karriere<span>Nabe</span></div>
             <p class="footer-desc">
                 Die Plattform für Bewerbung, Lebenslauf-Erstellung
                 und Ausbildungssuche in Deutschland.
