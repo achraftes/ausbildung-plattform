@@ -43,7 +43,7 @@
 
     <div class="footer-bottom">
         <span class="footer-copy">
-            &copy; {{ date('Y') }} CareerHub 🇩🇪 — Alle Rechte vorbehalten
+            &copy; {{ date('Y') }} KarriereNabe 🇩🇪 — Alle Rechte vorbehalten
         </span>
         <div class="footer-links">
             <a href="#">Datenschutz</a>
