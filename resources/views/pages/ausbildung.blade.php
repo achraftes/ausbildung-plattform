@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('title', 'Ausbildungsberufe')
 
 @push('styles')
@@ -173,6 +174,24 @@
     }
     .modal-btn-close:hover { background: #e9ecef; }
 
+    /* Condition badge */
+    .condition-badge {
+        background: #e9ecef;
+        border-left: 3px solid #e94560;
+        padding: 0.6rem 0.8rem;
+        border-radius: 8px;
+        margin-top: 0.8rem;
+    }
+    .condition-badge p {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #1a1a2e;
+    }
+    .condition-badge p strong {
+        color: #e94560;
+    }
+
     @media(max-width:768px) {
         .top-bar { flex-direction: column; align-items: flex-start; }
     }
@@ -200,11 +219,11 @@
     <div class="top-bar">
         <div class="stats-row">
             <div class="stat-item">
-                <div class="stat-num">180+</div>
+                <div class="stat-num">200+</div>
                 <div class="stat-lbl">Berufe</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num">10</div>
+                <div class="stat-num">12</div>
                 <div class="stat-lbl">Kategorien</div>
             </div>
             <div class="stat-item">
@@ -221,6 +240,7 @@
             <button class="tab-btn" onclick="filterTab('gesundheit', this)">🏥 Gesundheit</button>
             <button class="tab-btn" onclick="filterTab('sozial', this)">🤝 Soziales</button>
             <button class="tab-btn" onclick="filterTab('buero', this)">📋 Büro</button>
+            <button class="tab-btn" onclick="filterTab('transport', this)">🚛 Transport & Logistik</button>
         </div>
     </div>
 
@@ -245,6 +265,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '800–1.100 €',
         abschluss: 'Mittlere Reife', stellen: '25.000+',
         desc: 'Entwickle professionelle Softwareanwendungen und digitale Lösungen für Unternehmen jeder Größe.',
+        condition: '🎓 Schulabschluss: Mittlere Reife oder Abitur. 🇩🇪 Deutsch: B1 (Goethe/ telc) empfohlen. Logisches Denken und Englischkenntnisse sind von Vorteil.',
         aufgaben: [
             'Softwareanwendungen programmieren (Java, Python, PHP...)',
             'Datenbanken entwerfen und verwalten',
@@ -262,6 +283,7 @@ const berufe = [
         dauer: '3,5 Jahre', gehalt: '700–1.050 €',
         abschluss: 'Hauptschulabschluss', stellen: '30.000+',
         desc: 'Installiere und warte elektrische Anlagen in Gebäuden, der Industrie und bei erneuerbaren Energien.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss oder Mittlere Reife. 🇩🇪 Deutsch: B1 (Goethe/ telc). Handwerkliches Geschick und technisches Verständnis sind wichtig.',
         aufgaben: [
             'Elektroanlagen in Gebäuden installieren',
             'Schaltschränke verdrahten und programmieren',
@@ -279,6 +301,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '600–900 €',
         abschluss: 'Hauptschulabschluss', stellen: '40.000+',
         desc: 'Berate Kunden kompetent, verwalte Warenbestände und gestalte attraktive Verkaufsflächen.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss. 🇩🇪 Deutsch: B1 (Goethe/ telc). Gute Kommunikationsfähigkeiten und Kundenorientierung sind entscheidend.',
         aufgaben: [
             'Kunden beraten und betreuen',
             'Warenbestand verwalten und bestellen',
@@ -296,6 +319,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '1.000–1.300 €',
         abschluss: 'Mittlere Reife', stellen: '50.000+',
         desc: 'Betreue und pflege Menschen aller Altersgruppen in Krankenhäusern und Pflegeeinrichtungen.',
+        condition: '🎓 Schulabschluss: Mittlere Reife oder gleichwertig. 🇩🇪 Deutsch: B2 (Goethe/ telc) zwingend erforderlich. Ein polizeiliches Führungszeugnis wird benötigt.',
         aufgaben: [
             'Patienten pflegen und betreuen',
             'Medikamente verabreichen und überwachen',
@@ -313,6 +337,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '600–900 €',
         abschluss: 'Mittlere Reife', stellen: '35.000+',
         desc: 'Organisiere Büroabläufe, koordiniere Termine und kommuniziere mit Kunden und Partnern.',
+        condition: '🎓 Schulabschluss: Mittlere Reife oder Abitur. 🇩🇪 Deutsch: B1 (Goethe/ telc). Gute EDV-Kenntnisse (MS Office) sind von Vorteil.',
         aufgaben: [
             'Büroorganisation und Verwaltung',
             'Terminplanung und Koordination',
@@ -330,6 +355,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '1.000–1.300 €',
         abschluss: 'Mittlere Reife', stellen: '45.000+',
         desc: 'Begleite, fördere und erziehe Kinder und Jugendliche in Kitas, Schulen und Einrichtungen.',
+        condition: '🎓 Schulabschluss: Mittlere Reife + abgeschlossene einschlägige Berufsausbildung (z.B. Sozialassistent) oder Abitur. 🇩🇪 Deutsch: B2 (Goethe/ telc). Erweiterte Führungszeugnis notwendig.',
         aufgaben: [
             'Kinder im Alltag betreuen und fördern',
             'Bildungs- und Spielangebote gestalten',
@@ -347,6 +373,7 @@ const berufe = [
         dauer: '3,5 Jahre', gehalt: '750–1.050 €',
         abschluss: 'Mittlere Reife', stellen: '20.000+',
         desc: 'Verbinde Mechanik, Elektronik und Informatik zur Wartung moderner Produktionsanlagen.',
+        condition: '🎓 Schulabschluss: Mittlere Reife oder Abitur. 🇩🇪 Deutsch: B1 (Goethe/ telc). Grundkenntnisse in Physik und Mathe sind erforderlich.',
         aufgaben: [
             'Maschinen und Anlagen montieren',
             'Steuerungsprogramme testen und optimieren',
@@ -364,6 +391,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '700–1.000 €',
         abschluss: 'Mittlere Reife', stellen: '15.000+',
         desc: 'Berate Kunden in Finanzfragen, verwalte Konten und bearbeite Kredit- und Sparanträge.',
+        condition: '🎓 Schulabschluss: Abitur oder sehr gute Mittlere Reife. 🇩🇪 Deutsch: B1/B2 (Goethe/ telc). Mathematikkenntnisse sind sehr wichtig.',
         aufgaben: [
             'Kunden in Finanz- und Anlagefragen beraten',
             'Konten, Depots und Kredite verwalten',
@@ -381,6 +409,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '600–900 €',
         abschluss: 'Mittlere Reife', stellen: '10.000+',
         desc: 'Gestalte digitale und gedruckte Medienprodukte, Webseiten, Logos und kreative Grafiken.',
+        condition: '🎓 Schulabschluss: Mittlere Reife oder Abitur. 🇩🇪 Deutsch: B1 (Goethe/ telc). Kreativität und ein gutes Auge für Ästhetik sind entscheidend.',
         aufgaben: [
             'Grafiken, Logos und Layouts erstellen',
             'Webseiten und Banner gestalten',
@@ -398,6 +427,7 @@ const berufe = [
         dauer: '3,5 Jahre', gehalt: '700–950 €',
         abschluss: 'Hauptschulabschluss', stellen: '22.000+',
         desc: 'Installiere Heizungs-, Sanitär- und Klimaanlagen in Wohn- und Gewerbeobjekten.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss oder Mittlere Reife. 🇩🇪 Deutsch: B1 (Goethe/ telc). Handwerkliches Geschick und körperliche Belastbarkeit sind Voraussetzung.',
         aufgaben: [
             'Heizungsanlagen planen und installieren',
             'Sanitäranlagen und Bäder einbauen',
@@ -415,6 +445,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '950–1.200 €',
         abschluss: 'Hauptschulabschluss', stellen: '60.000+',
         desc: 'Betreue und pflege ältere Menschen in Pflegeheimen oder im häuslichen Umfeld liebevoll.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss mit guten Noten oder Mittlere Reife. 🇩🇪 Deutsch: B2 (Goethe/ telc). Geduld, Empathie und Führungszeugnis sind notwendig.',
         aufgaben: [
             'Körperpflege und Grundversorgung',
             'Medikamente verteilen und dokumentieren',
@@ -432,6 +463,7 @@ const berufe = [
         dauer: '3 Jahre', gehalt: '600–850 €',
         abschluss: 'Hauptschulabschluss', stellen: '18.000+',
         desc: 'Bereite professionell Speisen zu und arbeite in Restaurants, Hotels und Catering-Unternehmen.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss. 🇩🇪 Deutsch: B1 (Goethe/ telc). Gesundheitszeugnis (Belehrung nach §43 IfSG) ist verpflichtend.',
         aufgaben: [
             'Speisen kreativ zubereiten und anrichten',
             'Menüs und Speisekarten planen',
@@ -440,6 +472,61 @@ const berufe = [
             'Waren einkaufen und lagern'
         ],
         weiter: 'Küchenmeister, Restaurantleitung, eigenes Restaurant, Chefkoch'
+    },
+    // NEUE AUSBILDUNGEN
+    {
+        id: 13,
+        title: 'Berufskraftfahrer/in – LKW',
+        kat: 'transport', katLabel: 'Transport & Logistik',
+        img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80',
+        dauer: '3 Jahre', gehalt: '800–1.100 €',
+        abschluss: 'Hauptschulabschluss', stellen: '35.000+',
+        desc: 'Fahre LKW im Nah- und Fernverkehr, lade Güter sicher und halte alle Lenk- und Ruhezeiten ein.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss. 🇩🇪 Deutsch: B1 (Goethe/ telc). Führerscheinklasse B (PKW) ist Voraussetzung, die Klasse C/CE wird während der Ausbildung erworben. Medizinische Untersuchung (Sehtest, allgemeine Gesundheit) notwendig.',
+        aufgaben: [
+            'LKW sicher im Straßenverkehr führen',
+            'Ladung fachgerecht sichern und kontrollieren',
+            'Lenk- und Ruhezeiten einhalten und dokumentieren',
+            'Fahrzeugpflege und einfache Wartung durchführen',
+            'Frachtpapiere und Liefernachweise bearbeiten'
+        ],
+        weiter: 'Weiterbildung zum Disponenten, Logistikmeister, Gefahrgutbeauftragter, Selbstständigkeit als Fuhrunternehmer'
+    },
+    {
+        id: 14,
+        title: 'Kraftfahrzeugmechatroniker/in – Nutzfahrzeugtechnik',
+        kat: 'handwerk', katLabel: 'Handwerk & Technik',
+        img: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=700&q=80',
+        dauer: '3,5 Jahre', gehalt: '700–1.000 €',
+        abschluss: 'Hauptschulabschluss', stellen: '20.000+',
+        desc: 'Repariere und warte LKW, Busse und andere Nutzfahrzeuge in spezialisierten Werkstätten.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss oder Mittlere Reife. 🇩🇪 Deutsch: B1 (Goethe/ telc). Technisches Verständnis, handwerkliches Geschick und ein Führerschein der Klasse B sind von Vorteil.',
+        aufgaben: [
+            'Fehlerdiagnose an Motor, Bremsen und Elektronik',
+            'Wartung und Inspektion von Nutzfahrzeugen',
+            'Reparatur von Bremsanlagen, Lenkung und Fahrwerk',
+            'Arbeiten mit Diagnosesystemen und Prüfgeräten',
+            'Durchführung von Sicherheitsprüfungen (SP / HU)'
+        ],
+        weiter: 'Meister im Kfz-Handwerk, Techniker für Fahrzeugtechnik, Studium Fahrzeugtechnik, Betriebsübernahme'
+    },
+    {
+        id: 15,
+        title: 'Fachkraft für Altenpflege (Alt. Bezeichnung) / Pflegefachassistenz',
+        kat: 'gesundheit', katLabel: 'Gesundheit & Pflege',
+        img: 'https://images.unsplash.com/photo-1577212017117-6519d20846b8?w=700&q=80',
+        dauer: '3 Jahre', gehalt: '900–1.200 €',
+        abschluss: 'Hauptschulabschluss', stellen: '55.000+',
+        desc: 'Unterstütze ältere Menschen bei der Pflege, Betreuung und Alltagsbewältigung in Pflegeheimen oder ambulanten Diensten.',
+        condition: '🎓 Schulabschluss: Hauptschulabschluss. 🇩🇪 Deutsch: B2 (Goethe/ telc) zwingend. Ein erweitertes polizeiliches Führungszeugnis wird benötigt. Empathie, Geduld und körperliche Belastbarkeit sind sehr wichtig.',
+        aufgaben: [
+            'Grundpflege (Körperpflege, Ernährung, Mobilität) durchführen',
+            'Pflegebedürftige bei der Alltagsbewältigung unterstützen',
+            'Vitalzeichen messen und dokumentieren',
+            'Betreuungsaktivitäten (Spiele, Spaziergänge) anbieten',
+            'Sterbebegleitung und Trauerarbeit'
+        ],
+        weiter: 'Weiterbildung zur Pflegefachkraft (generalistische Pflegeausbildung), Wohnbereichsleitung, Praxisanleiter/in'
     }
 ];
 
@@ -474,6 +561,9 @@ function renderCards() {
                     <span class="pill">💶 ${b.gehalt}/Monat</span>
                     <span class="pill">🎓 ${b.abschluss}</span>
                 </div>
+                <div class="condition-badge">
+                    <p><strong>📋 Zugangsvoraussetzungen:</strong><br>${b.condition}</p>
+                </div>
                 <div class="card-actions">
                     <button class="btn-mehr" onclick="openModal(${b.id})">Mehr erfahren</button>
                     <button class="btn-bewerb" onclick="bewerbung(${b.id})">Bewerben →</button>
@@ -501,6 +591,7 @@ function toggleFav(btn) {
 
 function openModal(id) {
     const b = berufe.find(x => x.id === id);
+    if(!b) return;
     document.getElementById('modalBox').innerHTML = `
         <div class="modal-hero-img">
             <img src="${b.img}" alt="${b.title}">
@@ -533,6 +624,10 @@ function openModal(id) {
             <div class="modal-section">
                 <h4>Beschreibung</h4>
                 <p>${b.desc}</p>
+            </div>
+            <div class="modal-section">
+                <h4>📋 Zugangsvoraussetzungen</h4>
+                <p>${b.condition}</p>
             </div>
             <div class="modal-section">
                 <h4>Typische Aufgaben</h4>

@@ -6,6 +6,80 @@
 
 @push('styles')
 <style>
+
+.about-section{
+    background: #ffffff;
+    padding: 5rem 1.5rem;
+}
+
+.about-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-tag{
+    display: inline-block;
+    background: #fff0f3;
+    color: #e94560;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.about-inner h2{
+    font-family: 'Sora', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-inner p{
+    color: #6c757d;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.about-box{
+    background: #1a1a2e;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.about-box h3{
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.about-box ul{
+    list-style: none;
+    padding: 0;
+}
+
+.about-box li{
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.about-box li::before{
+    content: "✔";
+    color: #e94560;
+    margin-right: 8px;
+}
+
+@media(max-width:768px){
+    .about-inner{
+        grid-template-columns:1fr;
+    }
+}
+
+
     /* ══ HERO ══ */
     .hero { background: #1a1a2e; padding: 5rem 1.5rem; text-align: center; }
     .hero-badge {
@@ -336,8 +410,41 @@
     <p>Tausende Nutzer haben bereits ihren professionellen Lebenslauf erstellt und ihren Wunschberuf in Deutschland gefunden.</p>
     <a href="{{ route('register') }}" class="btn-cta">Kostenlos registrieren</a>
 </section>
-@endguest
+@endguest  
+{{-- ════ ABOUT US ════ --}}
+<section class="about-section">
+    <div class="about-inner">
 
+        <div>
+            <div class="about-tag">Über uns</div>
+
+            <h2>Was ist Karriere Nabe?</h2>
+
+            <p>
+                Karriere Nabe ist eine moderne Plattform, die Studenten, Absolventen und Arbeitssuchenden hilft,
+                die richtige Ausbildung in Deutschland zu finden und professionelle Bewerbungsunterlagen zu erstellen.
+            </p>
+
+            <p>
+                Wir unterstützen dich von A bis Z: Lebenslauf erstellen, Ausbildungsplätze entdecken und die passende
+                Karriere finden.
+            </p>
+        </div>
+
+        <div class="about-box">
+            <h3>Unsere Plattform bietet:</h3>
+
+            <ul>
+                <li>Ausbildungsangebote in Deutschland</li>
+                <li>KI-Karriereberatung</li>
+                <li>Lebenslauf-Generator (CV Builder)</li>
+                <li>Bewerbungstipps & Interviewhilfe</li>
+                <li>Berufsorientierung für Studenten</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
 @endsection
 
 @push('scripts')
