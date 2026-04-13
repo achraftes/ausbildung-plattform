@@ -167,7 +167,7 @@
         font-family: 'Sora', sans-serif;
         font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;
     }
-    .sites-header p { color: rgba(255,255,255,0.45); font-size: 0.9rem; }
+    .sites-header p { color: rgba(255,255,255,255); font-size: 0.9rem; }
     .sites-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -202,7 +202,7 @@
     }
     .sites-note {
         text-align: center; margin-top: 2rem;
-        color: rgba(255,255,255,0.25); font-size: 0.8rem;
+        color: rgba(255,255,255,255); font-size: 0.8rem;
     }
 
     @media(max-width:768px) {
