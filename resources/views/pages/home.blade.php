@@ -284,152 +284,29 @@
         padding: 14px 36px; border-radius: 10px;
         font-weight: 700; font-size: 1rem; text-decoration: none;
     }
-    .hero {
-    padding: 80px 5%;
-    background: #f9fbfb;
-}
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-badge {
-    background: #e6f4f1;
-    color: #0f766e;
-    padding: 8px 16px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.hero h1 {
-    font-size: 42px;
-    font-weight: bold;
-    line-height: 1.3;
-}
-
-.hero h1 span {
-    color: #0f766e;
-}
-
-.hero p {
-    margin: 20px 0;
-    color: #555;
-    max-width: 500px;
-}
-
-.hero-btns {
-    margin-top: 20px;
-}
-
-.btn-hero-primary {
-    background: #0f766e;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-right: 10px;
-    text-decoration: none;
-}
-
-.btn-hero-secondary {
-    border: 1px solid #0f766e;
-    color: #0f766e;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 20px;
-}
-
-.stats-bar {
-    display: flex;
-    gap: 40px;
-    margin-top: 30px;
-}
-
-.stat-num {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.stat-lbl {
-    font-size: 14px;
-    color: #666;
-}
 </style>
 @endpush
 
 @section('content')
 
 {{-- ════ HERO ════ --}}
-{{-- ════ HERO ════ --}}
 <section class="hero">
-    <div class="hero-container">
-
-        {{-- LEFT CONTENT --}}
-        <div class="hero-content">
-            <div class="hero-badge">🇩🇪 Deine Karriereplattform für Deutschland</div>
-
-            <h1>
-                Erstelle deinen<br>
-                <span>perfekten Lebenslauf</span><br>
-                in wenigen Minuten
-            </h1>
-
-            <p>
-                Professionelle Bewerbungsunterlagen erstellen, Ausbildungsberufe entdecken 
-                und mit unserem KI-Chatbot persönliche Karrieretipps erhalten.
-            </p>
-
-            <div class="hero-btns">
-                @auth
-                    <a href="{{ route('cv.create') }}" class="btn-hero-primary">Lebenslauf erstellen</a>
-                    <a href="{{ route('dashboard') }}" class="btn-hero-secondary">Mein Dashboard</a>
-                @else
-                    <a href="{{ route('register') }}" class="btn-hero-primary">Kostenlos starten</a>
-                    <a href="{{ route('ausbildung.index') }}" class="btn-hero-secondary">Ausbildungen entdecken</a>
-                @endauth
-            </div>
-
-            <div class="stats-bar">
-                <div>
-                    <div class="stat-num">2.400+</div>
-                    <div class="stat-lbl">erstellte Lebensläufe</div>
-                </div>
-                <div>
-                    <div class="stat-num">180+</div>
-                    <div class="stat-lbl">Ausbildungsberufe</div>
-                </div>
-                <div>
-                    <div class="stat-num">98%</div>
-                    <div class="stat-lbl">Zufriedenheitsrate</div>
-                </div>
-            </div>
-        </div>
-
-        {{-- RIGHT IMAGE --}}
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Student">
-        </div>
-
+    <div class="hero-badge">🇩🇪 Deine Karriereplattform für Deutschland</div>
+    <h1>Erstelle deinen<br><span>perfekten Lebenslauf</span><br>in wenigen Minuten</h1>
+    <p>Professionelle Bewerbungsunterlagen erstellen, Ausbildungsberufe entdecken und mit unserem KI-Chatbot persönliche Karrieretipps erhalten.</p>
+    <div class="hero-btns">
+        @auth
+            <a href="{{ route('cv.create') }}" class="btn-hero-primary">Lebenslauf erstellen</a>
+            <a href="{{ route('dashboard') }}" class="btn-hero-secondary">Mein Dashboard</a>
+        @else
+            <a href="{{ route('register') }}" class="btn-hero-primary">Kostenlos starten</a>
+            <a href="{{ route('ausbildung.index') }}" class="btn-hero-secondary">Ausbildungen entdecken</a>
+        @endauth
+    </div>
+    <div class="stats-bar">
+        <div><div class="stat-num">2.400+</div><div class="stat-lbl">erstellte Lebensläufe</div></div>
+        <div><div class="stat-num">180+</div><div class="stat-lbl">Ausbildungsberufe</div></div>
+        <div><div class="stat-num">98%</div><div class="stat-lbl">Zufriedenheitsrate</div></div>
     </div>
 </section>
 
