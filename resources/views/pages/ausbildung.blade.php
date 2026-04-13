@@ -356,7 +356,7 @@
 
         </div>
         <p class="sites-note">
-            🔒 Alle Links führen zu offiziellen externen Webseiten. CareerHub ist nicht verantwortlich für deren Inhalte.
+            🔒 Alle Links führen zu offiziellen externen Webseiten. KarriereNabe ist nicht verantwortlich für deren Inhalte.
         </p>
     </div>
 </section>
