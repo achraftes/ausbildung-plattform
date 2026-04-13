@@ -92,7 +92,8 @@
             background: var(--border);
             margin: 0 8px;
         }
-
+   
+        
         /* Boutons navbar */
         .btn-login {
             padding: 7px 18px;
