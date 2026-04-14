@@ -2,7 +2,19 @@
 @section('title', 'Karrieretipps')
 
 @push('styles')
-<style>
+<style>   
+
+.yt-card-video{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.yt-card-video:hover{
+    transform: translateY(-4px);
+}
     /* ══ HERO ══ */
     .adv-hero { background: #1a1a2e; padding: 4rem 1.5rem; text-align: center; }
     .adv-badge {
@@ -155,7 +167,7 @@
         font-family: 'Sora', sans-serif;
         font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;
     }
-    .yt-header p { color: rgba(255,255,255,0.45); font-size: 0.9rem; }
+    .yt-header p { color: rgba(255,255,255,255); font-size: 0.9rem; }
     .yt-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -202,7 +214,7 @@
     .yt-card:hover .yt-play { color: #ff4444; }
     .yt-note {
         text-align: center; margin-top: 2rem;
-        color: rgba(255,255,255,0.2); font-size: 0.78rem;
+        color: rgba(255,255,255,255); font-size: 0.78rem;
     }
 
     /* ══ CTA ══ */
@@ -305,22 +317,33 @@
         </div>
         <div class="yt-grid">
             @foreach($youtubeChannels as $yt)
-                <a class="yt-card" href="{{ $yt['url'] }}" target="_blank" rel="noopener">
-                    <div class="yt-thumb">
-                        <img src="{{ $yt['thumbnail'] }}" alt="{{ $yt['name'] }}"
-                             onerror="this.src='https://img.youtube.com/vi/default/mqdefault.jpg'">
-                    </div>
-                    <div class="yt-info">
-                        <div class="yt-name">{{ $yt['name'] }}</div>
-                        <div class="yt-desc">{{ $yt['description'] }}</div>
-                        <div class="yt-meta">
-                            <span class="yt-badge" style="background:{{ $yt['badge_color'] }}">{{ $yt['badge'] }}</span>
-                            <span class="yt-sub">👥 {{ $yt['subscribers'] }}</span>
-                            <span class="yt-niveau">📊 {{ $yt['niveau'] }}</span>
-                        </div>
-                    </div>
-                    <div class="yt-play">▶</div>
-                </a>
+  <div class="yt-card-video">
+
+    <iframe
+        src="https://www.youtube.com/embed/{{ $yt['video_id'] }}"
+        title="{{ $yt['name'] }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="width:100%; height:200px; border-radius:12px;">
+    </iframe>
+
+    <div class="yt-info">
+        <div class="yt-name">{{ $yt['name'] }}</div>
+        <div class="yt-desc">{{ $yt['description'] }}</div>
+
+        <div class="yt-meta">
+            <span class="yt-badge" style="background:{{ $yt['badge_color'] }}">
+                {{ $yt['badge'] }}
+            </span>
+
+            <span class="yt-sub">👥 {{ $yt['subscribers'] }}</span>
+
+            <span class="yt-niveau">📊 {{ $yt['niveau'] }}</span>
+        </div>
+    </div>
+
+</div>
             @endforeach
         </div>
         <p class="yt-note">
