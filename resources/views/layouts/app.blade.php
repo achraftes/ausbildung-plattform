@@ -170,6 +170,46 @@
         main { min-height: calc(100vh - 65px - 280px); }
 
         /* ══════════════════════════════
+           SCROLL TO TOP BUTTON
+        ══════════════════════════════ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            z-index: 999;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--accent-hv);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        .scroll-top:active {
+            transform: translateY(0);
+        }
+
+        /* ══════════════════════════════
            FOOTER
         ══════════════════════════════ */
         .site-footer {
@@ -241,6 +281,13 @@
             .nav-links a { padding: 6px 9px; font-size: 0.8rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
     </style>
 
@@ -262,6 +309,44 @@
     </main>
 
     @include('partials.footer')
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Nach oben scrollen">
+        ↑
+    </button>
+
+    <script>
+        // Scroll to Top Button Logic
+        (function() {
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            
+            if (!scrollBtn) return;
+            
+            // Show/hide button based on scroll position
+            function toggleScrollButton() {
+                if (window.scrollY > 300) {
+                    scrollBtn.classList.add('show');
+                } else {
+                    scrollBtn.classList.remove('show');
+                }
+            }
+            
+            // Scroll to top smoothly
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Add event listeners
+            window.addEventListener('scroll', toggleScrollButton);
+            scrollBtn.addEventListener('click', scrollToTop);
+            
+            // Initial check
+            toggleScrollButton();
+        })();
+    </script>
 
     @stack('scripts')
 </body>
