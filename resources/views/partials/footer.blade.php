@@ -35,7 +35,7 @@
                 <li><a href="#">Datenschutz</a></li>
                 <li><a href="#">Impressum</a></li>
                 <li><a href="#">AGB</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li><a href="{{ route('contact') }}">Kontakt</a></li>
             </ul>
         </div>
 
@@ -45,10 +45,10 @@
         <span class="footer-copy">
             &copy; {{ date('Y') }} KarriereNabe 🇩🇪 — Alle Rechte vorbehalten
         </span>
-        <div class="footer-links">
-            <a href="#">Datenschutz</a>
-            <a href="#">Impressum</a>
-            <a href="#">Kontakt</a>
+        
+        <div class="footer-developer">
+            <span>Entwickelt von</span>
+            <a href="https://achraf-chikrabane.vercel.app/" target="_blank" rel="noopener noreferrer">Achraf Chikrabane</a>
         </div>
     </div>
 </footer>
