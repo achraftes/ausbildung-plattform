@@ -46,7 +46,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 1',
         'badge' => '🎬 Video',
         'badge_color' => '#e94560',
-        'niveau' => 'A1',
+        'niveau' => 'A1-->B2',
         'subscribers' => '—',
     ],
     [
@@ -56,7 +56,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 2',
         'badge' => '🎬 Video',
         'badge_color' => '#0f6e56',
-        'niveau' => 'A1',
+        'niveau' => 'A1-->B2',
         'subscribers' => '—',
     ],
     [
@@ -66,7 +66,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 3',
         'badge' => '🎬 Video',
         'badge_color' => '#185FA5',
-        'niveau' => 'A2',
+        'niveau' => 'A1-->C1',
         'subscribers' => '—',
     ],
     [
@@ -76,7 +76,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 4',
         'badge' => '🎬 Video',
         'badge_color' => '#854F0B',
-        'niveau' => 'A2',
+        'niveau' => 'A1-->B1',
         'subscribers' => '—',
     ],
     [
@@ -86,7 +86,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 5',
         'badge' => '🎬 Video',
         'badge_color' => '#533AB7',
-        'niveau' => 'B1',
+        'niveau' => 'B1-->B2',
         'subscribers' => '—',
     ],
     [
@@ -96,7 +96,7 @@ $youtubeChannels = [
         'description' => 'Deutsch lernen Video 6',
         'badge' => '🎬 Video',
         'badge_color' => '#e94560',
-        'niveau' => 'B1',
+        'niveau' => 'A1-->A2',
         'subscribers' => '—',
     ],
 ];
