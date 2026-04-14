@@ -319,7 +319,7 @@
             <div class="feature-icon" style="background:#fff0f3;">📄</div>
             <h3>Lebenslauf-Generator</h3>
             <p>Erstelle und lade deinen Lebenslauf als PDF herunter – mit professionellen Vorlagen nach deutschem Standard.</p>
-            @auth <a href="{{ route('cv.create') }}">Jetzt erstellen →</a>
+            @auth <a href="{{ route('cv.index') }}">Jetzt erstellen →</a>
             @else <a href="{{ route('register') }}">Loslegen →</a> @endauth
         </div>
         <div class="feature-card">
