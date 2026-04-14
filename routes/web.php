@@ -41,12 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [CVController::class, 'index'])->name('dashboard');
 
     // CV CRUD
+    Route::get('/cv',               [CVController::class, 'index'])->name('cv.index');
     Route::get('/cv/create',        [CVController::class, 'create'])->name('cv.create');
     Route::post('/cv/store',        [CVController::class, 'store'])->name('cv.store');
+    Route::get('/cv/show/{id}',     [CVController::class, 'show'])->name('cv.show');
     Route::get('/cv/edit/{id}',     [CVController::class, 'edit'])->name('cv.edit');
     Route::post('/cv/update/{id}',  [CVController::class, 'update'])->name('cv.update');
     Route::delete('/cv/delete/{id}',[CVController::class, 'destroy'])->name('cv.delete');
     Route::get('/cv/download/{id}', [CVController::class, 'downloadPDF'])->name('cv.download');
+    Route::post('/cv/ats-check',    [CVController::class, 'atsCheck'])->name('cv.ats');
 
     // Chatbot
     Route::get('/chatbot',      [ChatbotController::class, 'logs'])->name('chatbot.logs');
