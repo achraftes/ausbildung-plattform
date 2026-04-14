@@ -666,4 +666,5 @@ function closeBg(e) {
 
 renderCards();
 </script>
+
 @endpush
